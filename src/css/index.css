@@ -1,100 +1,16 @@
-/* FONTS */
-@font-face {
-  font-family: "Inter";
-  src: url("../../assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf");
+#bu{
+    padding: 0;
+    margin: 0;
+    width: 90px;
+    height: 80px;
+    border-radius: 10%;
+    color: #35060f;
+    background-color: #9e8787;
+    border: 1.5px solid rgb(70, 66, 66);
+    position: fixed;
+    bottom:10px;
+    right:10px;
 }
-
-/* CUSTOM PROPERTIES */
-:root {
-  /* colors */
-  --bg-pri-col: #3e4251;
-  --bg-sec-col: #cccccc;
-  --bg-head-col: #3e4251;
-  --icon-col: #717cb4;
-  --hover-col: #000;
-
-  /* font sizes */
-  --font-sz-1: 2.25rem;
-  --font-sz-2: 2rem;
-  --font-sz-3: 1.75rem;
-  --font-sz-4: 1.5rem;
-  --font-sz-5: 1.25rem;
-  --font-sz-6: 1rem;
-}
-
-* {
-  box-sizing: border-box;
-  margin: auto;
-  font-family: "Inter", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-    sans-serif;
-}
-body {
-  background: var(--bg-sec-col, #f2d6d6);
-}
-/* Header Styles */
-header {
-  background: var(--bg-head-col, #ff3344);
-  width: 100%;
-  height: 4rem;
-  align-content: center;
-}
-nav {
-  width: fit-content;
-  margin-right: 0.5rem;
-  display: flex;
-  gap: 1rem;
-}
-button {
-  background: none;
-  border: none;
-}
-svg {
-  fill: var(--bg-sec-col, white);
-  width: 2.8rem;
-}
-
-button:hover > svg {
-  fill: var(--hover-col);
-}
-button:active {
-  scale: 1.05;
-}
-/* Main Styles */
-#title {
-  font-size: 7rem;
-  text-align: center;
-  margin-top: 8rem;
-}
-
-
-.name {
-  background: linear-gradient(90deg, #f07178, #c792ea);
-  background-clip: text;
-  color: transparent;
-  padding: 0 0.01rem;
-}
-.surname {
-  background: linear-gradient(90deg, #c792ea, #82aaff);
-    background-clip: text;
-  color: transparent;
-
-  animation: disappear 3s ease 1s forwards;
-  display: inline-block;
-}
-
-/* KEYFRAMES */
-@keyframes disappear {
-  0% {
-    transform: translate(0, 0) scale(1) rotate(0deg);
-    opacity: 1;
-  }
-  10% {
-    transform: translate(3rem, 0) scale(1) rotate(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(8rem, 10rem) scale(0.1) rotate(1080deg);
-    opacity: 0;
-    display: none;
-  }
+body{
+    height: 1000vh;
 }
