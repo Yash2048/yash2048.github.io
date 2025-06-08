@@ -5,19 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link rel="stylesheet" href="src/css/index.css">
+    <link rel="stylesheet" href="./src/css/index.css">
 </head>
 
 <body>
     <header>
         <nav>
-            <a href="./src/pages/cli.html">
-            <button title="cli">
+            <!-- removed the button because using it inside an anchor tag is invalid -->
+             <!-- instead gave the anchor tag a role of button  -->
+            <a role="button" aria-label="cli"  title="cli" href="./src/pages/cli.html">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#e3e3e3">
                     <path
                         d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H160v400Zm140-40-56-56 103-104-104-104 57-56 160 160-160 160Zm180 0v-80h240v80H480Z" />
                 </svg>
-            </button>
             </a>
             <button class="dark-light-mode dark-icon" title="toggle darkmode">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#e3e3e3">
@@ -30,6 +30,6 @@
     <main>
         <h1 id="title">Hi. I am <span class="name">Yash<span class="surname">raj.</span></span></h1>
     </main>
-    <script src="src/js/index.js"></script>
+    <script type="module" src="./src/js/index.js"></script>
 </body>
 </html>

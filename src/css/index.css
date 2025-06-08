@@ -53,10 +53,12 @@ svg {
   width: 2.8rem;
 }
 
-button:hover > svg {
+button:hover > svg,
+a[role="button"]:hover>svg {
   fill: var(--hover-col);
 }
-button:active {
+button:active,
+a[role="button"]:active {
   scale: 1.05;
 }
 /* Main Styles */
