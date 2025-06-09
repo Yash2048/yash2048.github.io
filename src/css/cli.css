@@ -36,10 +36,16 @@ main {
   inset: 1rem;
   border: 3px solid var(--outline-clr);
   border-radius: 0.5rem;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   overflow-y: auto;
   scrollbar-color: gray var(--outline-clr);
 }
+.terminal-input{
+  display: flex;
+  align-items: center;
+  gap:0.2rem ;
+}
+
 .terminal-prompt {
   color: var(--txt-slc-clr);
   font-weight: bold;
@@ -63,6 +69,7 @@ main {
   font: inherit;
   color: inherit;
   width: max-content;
+  flex-grow: 1;
 }
 .cmd:focus{
     border: none;
