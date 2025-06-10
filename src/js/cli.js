@@ -53,10 +53,19 @@ function commandHandler(cmd, mainElement, clone) {
             break;
 
         default:
-            mainElement.innerHTML +=
-                `
-            <p class='output'><span>${args[0]}: </span><span>command not found.</span></p>    
-            `;
+            const p = document.createElement("p");
+            p.className = "output";
+            
+            const commandSpan = document.createElement("span");
+            commandSpan.textContent = `${args[0]}: `;
+            
+            const errorSpan = document.createElement("span");
+            errorSpan.className = "error";
+            errorSpan.textContent = "command not found.";
+            
+            p.appendChild(commandSpan);
+            p.appendChild(errorSpan);
+            mainElement.appendChild(p);
             break;
     }
 }

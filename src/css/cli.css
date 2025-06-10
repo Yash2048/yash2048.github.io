@@ -6,6 +6,7 @@
   --outline-clr: #ddbdf2;
   --usr-clr: #ffcb6b;
   --host-clr: #c792ea;
+  --err-clr:#f07178;
 }
 
 @font-face {
@@ -78,7 +79,9 @@ main {
 }
 
 .output{
-  & :nth-child(1){
     font-weight: bold;
-  }
+    .error{
+      color:var(--err-clr)
+    }
+
 }
