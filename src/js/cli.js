@@ -7,40 +7,56 @@ document.addEventListener("keydown", (event) => {
     ) {
         input.focus();
     }
-     if (event.key === 'Enter') {
+    if (event.key === 'Enter') {
         const inputValue = input.value;
         const terminalInput = input.closest('.terminal-input');
         const terminalInputClone = terminalInput.cloneNode(true);
+        const main = document.querySelector("main")
         terminalInputClone.querySelector('input').value = '';
-        
+
         /* Replacing input element with span */
         const span = document.createElement('span')
         span.textContent = inputValue;
-        input.parentNode.replaceChild(span, input);
-        
+        input.parentNode.replaceChild(span, input, terminalInputClone);
+
         /* returns the output to the command */
-        commandHandler(input.value);
+        commandHandler(input.value, main);
 
         /* Appends the terminal input wrapper to the next line */
-        const main = document.querySelector("main")
         main.append(terminalInputClone)
 
     }
 });
 
-function commandHandler(cmd) {
-    const args = cmd.trim().split(' ').filter((word) => word.length > 0)
+const cmds = ['exit', 'help']
+
+function commandHandler(cmd, mainElement, clone) {
+    const args = cmd.trim().split(' ').filter((word) => word.length > 0);
+
     switch (args[0]) {
         case 'exit':
             window.location.href = '/';
             break;
-        case 'help':
 
-            break
+        case 'help':
+            mainElement.innerHTML +=
+                `
+            <p class='output'><span>available commands: </span><span>${cmds.toString().replace(',', ', ')}</span></p>    
+            `
+            break;
+
+        case 'whoami':
+            
+            break;
+
+        case undefined:
+            break;
 
         default:
-            const ti = document.querySelector('.terminal-input');
-            console.log(document.querySelector('main'))
+            mainElement.innerHTML +=
+                `
+            <p class='output'><span>${args[0]}: </span><span>command not found.</span></p>    
+            `;
             break;
     }
 }

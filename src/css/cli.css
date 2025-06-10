@@ -28,7 +28,7 @@
 body {
   background-color: var(--bg-clr);
   font-size: 18px;
-  color: var(--txt-clr);
+  color: var(--txt-slc-clr);
   font-family: 'Fira Code';
 }
 main {
@@ -75,4 +75,10 @@ main {
     border: none;
     outline: none;
     caret-color: #ffdfa6;
+}
+
+.output{
+  & :nth-child(1){
+    font-weight: bold;
+  }
 }
