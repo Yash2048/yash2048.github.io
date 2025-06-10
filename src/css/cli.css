@@ -93,3 +93,27 @@ main {
       text-decoration: none;
     }
 }
+.skills{
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.skills>*{
+  display: flex;
+  ul{
+    display: flex;
+    gap: 10px;
+  }
+}
+
+li{
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.3rem;
+}
+li::after{
+  content: ",";
+  transform: translateX(-0.2rem);
+}
