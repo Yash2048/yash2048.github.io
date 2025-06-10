@@ -28,7 +28,7 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
-const cmds = ['exit','help','inspiration']
+const cmds = ['exit','help','inspiration','whoami']
 
 function commandHandler(cmd, mainElement, clone) {
     const args = cmd.trim().split(' ').filter((word) => word.length > 0);
@@ -59,7 +59,9 @@ function commandHandler(cmd, mainElement, clone) {
             break;
 
         case 'whoami':
-
+            p.textContent = document.querySelector('.usr-name').textContent
+            p.className = 'output usr-name'
+            mainElement.appendChild(p)
         break;
 
         case undefined:

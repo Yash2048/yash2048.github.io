@@ -84,7 +84,6 @@ main {
 }
 
 .output{
-  margin-left: 0.2rem;
     font-weight: bold;
     .error{
       color:var(--err-clr)
@@ -93,5 +92,4 @@ main {
       color:var(--url-clr);
       text-decoration: none;
     }
-
 }
