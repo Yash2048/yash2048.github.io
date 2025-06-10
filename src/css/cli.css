@@ -7,6 +7,7 @@
   --usr-clr: #ffcb6b;
   --host-clr: #c792ea;
   --err-clr:#f07178;
+  --url-clr:#82aaff;
 }
 
 @font-face {
@@ -45,6 +46,9 @@ main {
   display: flex;
   align-items: center;
   gap:0.2rem ;
+  &:not(:first-child){
+    margin-top:0.1rem;
+  }
 }
 
 .terminal-prompt {
@@ -64,24 +68,30 @@ main {
     color: #ddbdf2;
   }
 }
-.cmd{
+#cmd{
   background: transparent;
   border: none;
   font: inherit;
   color: inherit;
   width: max-content;
+  padding:0;
   flex-grow: 1;
 }
-.cmd:focus{
+#cmd:focus{
     border: none;
     outline: none;
     caret-color: #ffdfa6;
 }
 
 .output{
+  margin-left: 0.2rem;
     font-weight: bold;
     .error{
       color:var(--err-clr)
+    }
+    a{
+      color:var(--url-clr);
+      text-decoration: none;
     }
 
 }

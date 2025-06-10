@@ -28,10 +28,12 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
-const cmds = ['exit', 'help']
+const cmds = ['exit','help','inspiration']
 
 function commandHandler(cmd, mainElement, clone) {
     const args = cmd.trim().split(' ').filter((word) => word.length > 0);
+    const p = document.createElement("p");
+    p.className = "output";
 
     switch (args[0]) {
         case 'exit':
@@ -41,28 +43,37 @@ function commandHandler(cmd, mainElement, clone) {
         case 'help':
             mainElement.innerHTML +=
                 `
-            <p class='output'><span>available commands: </span><span>${cmds.toString().replace(',', ', ')}</span></p>    
+            <p class='output'><span>available commands: </span><span>${cmds.toString().replaceAll(',', ', ')}</span></p>    
             `
             break;
 
-        case 'whoami':
-            
+        case 'inspiration':
+            p.textContent = "Redirecting... => ";
+            const a = document.createElement("a");
+            a.href = "https://meddelanden.se/";
+            a.target = "_blank"
+            a.textContent = "meddelanden.se";
+            p.appendChild(a)
+            mainElement.append(p)
+            window.open('https://meddelanden.se/')
             break;
+
+        case 'whoami':
+
+        break;
 
         case undefined:
             break;
 
         default:
-            const p = document.createElement("p");
-            p.className = "output";
-            
+
             const commandSpan = document.createElement("span");
             commandSpan.textContent = `${args[0]}: `;
-            
+
             const errorSpan = document.createElement("span");
             errorSpan.className = "error";
             errorSpan.textContent = "command not found.";
-            
+
             p.appendChild(commandSpan);
             p.appendChild(errorSpan);
             mainElement.appendChild(p);
