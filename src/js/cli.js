@@ -84,14 +84,7 @@ const skills = {
             "name":"pnpm",
             "className":"devicon-pnpm-plain"
         },
-        {
-            "name":"GitHub",
-            "className":"devicon-github-original"
-        },
-        {
-            "name":"GitHub",
-            "className":"devicon-github-original"
-        },
+
     ],
     "interested":[
         {
