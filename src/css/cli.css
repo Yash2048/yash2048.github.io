@@ -6,6 +6,8 @@
   --outline-clr: #ddbdf2;
   --usr-clr: #ffcb6b;
   --host-clr: #c792ea;
+  --err-clr:#f07178;
+  --url-clr:#82aaff;
 }
 
 @font-face {
@@ -28,7 +30,7 @@
 body {
   background-color: var(--bg-clr);
   font-size: 18px;
-  color: var(--txt-clr);
+  color: var(--txt-slc-clr);
   font-family: 'Fira Code';
 }
 main {
@@ -36,10 +38,19 @@ main {
   inset: 1rem;
   border: 3px solid var(--outline-clr);
   border-radius: 0.5rem;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   overflow-y: auto;
   scrollbar-color: gray var(--outline-clr);
 }
+.terminal-input{
+  display: flex;
+  align-items: center;
+  gap:0.2rem ;
+  &:not(:first-child){
+    margin-top:0.1rem;
+  }
+}
+
 .terminal-prompt {
   color: var(--txt-slc-clr);
   font-weight: bold;
@@ -57,15 +68,59 @@ main {
     color: #ddbdf2;
   }
 }
-.cmd{
+#cmd{
   background: transparent;
   border: none;
   font: inherit;
   color: inherit;
   width: max-content;
+  padding:0;
+  flex-grow: 1;
 }
-.cmd:focus{
+#cmd:focus{
     border: none;
     outline: none;
     caret-color: #ffdfa6;
+}
+
+.output{
+    font-weight: bold;
+    .error{
+      color:var(--err-clr)
+    }
+    a{
+      color:var(--url-clr);
+      text-decoration: none;
+    }
+}
+.skills{
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.skills > * {
+  display: grid;
+  grid-template-columns: 100px 1fr; /* Adjust 100px if needed */
+  align-items: start;
+  column-gap: 2rem;
+}
+
+.skills ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+li{
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.3rem;
+}
+li:not(:last-child):after{
+  content: ",";
+  transform: translateX(-0.2rem);
 }
