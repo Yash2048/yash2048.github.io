@@ -131,15 +131,14 @@ main {
 }
 
 .about {
-  & p::before {
-    content: ">";
-    margin-right: 0.4rem;
-    color: #82aaff;
-    font-weight: bold;
-  }
   & p {
     font-size: 1.2rem;
     font-weight: normal;
+  }
+  li::marker {
+    content: "> ";
+    color: #82aaff;
+    font-weight: bold;
   }
 }
 
@@ -151,7 +150,7 @@ main {
     font-weight: normal;
   }
 
-  li::marker {
+  ul>li::marker {
     content: "> ";
     color: #82aaff;
     font-weight: bold;

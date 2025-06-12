@@ -263,11 +263,13 @@ function commandHandler(cmd, mainElement, clone) {
             about.innerHTML =
                 `
             <h1>Hi, I'm Yash.</h1>
-            <p>I'm 21 and a CS student. I'm currently pursuing Bsc. CS.</p>
-            <p>I've had 1 year of experience in building websites and mobile apps.</p>
-            <p>I specialize in making responsive, accessible websites using a variety of different web stacks.</p>
-            <p>I love diving deep into random programming rabbit holes. I don't limit myself to a single field.</p>
-            <p>I plan to delve into different CS fields like desktop development, systems engineering, AI, DevOps and so on.</p>
+            <ul>
+            <li><p>I'm 21 and a CS student. I'm currently pursuing Bsc. CS.</p></li>
+            <li><p>I've had 1 year of experience in building websites and mobile apps.</p></li>
+            <li><p>I specialize in making responsive, accessible websites using a variety of different web stacks.</p></li>
+            <li><p>I love diving deep into random programming rabbit holes. I don't limit myself to a single field.</p></li>
+            <li><p>I plan to delve into different CS fields like desktop development, systems engineering, AI, DevOps and so on.</p></li>
+            </ul>
             `
             mainElement.appendChild(about)
             break;
