@@ -191,7 +191,7 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
-const cmds = ['help', 'clear', 'exit', 'inspiration', 'whoami', 'about', 'skills', 'experience']
+const cmds = ['help', 'clear', 'exit', 'inspiration', 'whoami', 'about', 'skills', 'experience','contact']
 
 function commandHandler(cmd, mainElement, clone) {
     const args = cmd.trim().split(' ').filter((word) => word.length > 0);
@@ -216,6 +216,7 @@ function commandHandler(cmd, mainElement, clone) {
             const a = document.createElement("a");
             a.href = "https://meddelanden.se/";
             a.target = "_blank"
+            a.rel ="noopener noreferrer"	
             a.textContent = "meddelanden.se";
             p.appendChild(a)
             mainElement.appendChild(p)

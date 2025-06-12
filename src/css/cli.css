@@ -168,3 +168,8 @@ main {
     }
   }
 }
+
+address{
+  font-style: oblique;
+  font-weight: normal;
+}
