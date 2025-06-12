@@ -187,7 +187,7 @@ document.addEventListener("keydown", (event) => {
 
         /* Appends the terminal input wrapper to the next line */
         main.appendChild(terminalInputClone)
-
+        terminalInputClone.scrollIntoView()
     }
 });
 
