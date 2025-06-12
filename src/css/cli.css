@@ -143,11 +143,23 @@ main {
 }
 
 .experience {
+  >:not(:last-child){
+    margin-bottom: 1rem;
+  }
   h4 {
     font-weight: 500;
   }
+  h3{
+    display: inline-block;
+
+    border-bottom: 3px whitesmoke groove;
+  }
   p {
     font-weight: normal;
+  }
+  .work:not(:last-child),
+  .project:not(:last-child){
+    margin-bottom: 5px;
   }
 
   ul>li::marker {
