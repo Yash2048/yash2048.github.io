@@ -353,6 +353,7 @@ function commandHandler(cmd, mainElement, clone) {
                 Mail me at  <a href="mailto:yashraj.ch2048@gmail.com" target="_blank" rel="noopener noreferrer">yashraj.ch2048@gmail.com</a><br>
             </address>
             `    
+            mainElement.appendChild(contact)
         break;
 
             case undefined:
