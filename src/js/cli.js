@@ -191,7 +191,7 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
-const cmds = ['help', 'clear', 'exit', 'inspiration', 'whoami', 'about', 'skills', 'experience']
+const cmds = ['help', 'clear', 'exit', 'inspiration', 'whoami', 'about', 'skills', 'experience','contact']
 
 function commandHandler(cmd, mainElement, clone) {
     const args = cmd.trim().split(' ').filter((word) => word.length > 0);
@@ -216,6 +216,7 @@ function commandHandler(cmd, mainElement, clone) {
             const a = document.createElement("a");
             a.href = "https://meddelanden.se/";
             a.target = "_blank"
+            a.rel ="noopener noreferrer"	
             a.textContent = "meddelanden.se";
             p.appendChild(a)
             mainElement.appendChild(p)
@@ -339,7 +340,22 @@ function commandHandler(cmd, mainElement, clone) {
             experienceContainer.appendChild(projectExperience)
             mainElement.appendChild(experienceContainer)
             break;
-        case undefined:
+   
+        case 'contact':
+            const contact = document.createElement('section')
+            contact.className = 'output contact-me'
+            contact.innerHTML +=
+            `
+            <h3>Contact me</h3>
+            <address>
+                Find with me on  <a href="https://github.com/Yash2048/"target="_blank" rel="noopener noreferrer"><i class="devicon-github-plain"></i></a><br>
+                Connect with me on  <a href="https://www.linkedin.com/in/yash-raj-trying-to-code/"target="_blank" rel="noopener noreferrer"><i class="devicon-linkedin-plain"></i></a><br>
+                Mail me at  <a href="mailto:yashraj.ch2048@gmail.com" target="_blank" rel="noopener noreferrer">yashraj.ch2048@gmail.com</a><br>
+            </address>
+            `    
+        break;
+
+            case undefined:
             break;
 
         default:
