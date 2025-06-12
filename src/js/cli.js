@@ -93,7 +93,7 @@ const skills = {
         },
         {
             "name":"Tauri",
-            "className":"devicon-rust-original"
+            "className":"devicon-tauri-plain"
         },
         {
             "name":"Docker",
@@ -145,7 +145,7 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
-const cmds = ['exit', 'help', 'inspiration', 'whoami', 'skills']
+const cmds = ['help', 'clear', 'exit', 'inspiration', 'whoami', 'about', 'skills']
 
 function commandHandler(cmd, mainElement, clone) {
     const args = cmd.trim().split(' ').filter((word) => word.length > 0);
@@ -173,7 +173,10 @@ function commandHandler(cmd, mainElement, clone) {
             a.textContent = "meddelanden.se";
             p.appendChild(a)
             mainElement.append(p)
-            window.open('https://meddelanden.se/')
+            setTimeout(() => {
+                window.open('https://meddelanden.se/')
+                
+            }, 300);
             break;
 
         case 'whoami':
@@ -187,7 +190,7 @@ function commandHandler(cmd, mainElement, clone) {
             const skillKeys = Object.keys(skills)
             const skillsArr = Array(skillKeys.length).fill(null).map(() => document.createElement('div'));
             skillsArr.forEach((div,index)=>{
-                div.className = skillKeys[index];
+                div.className = `skill ${skillKeys[index]}`;
                 const nameSpan = document.createElement('span')
                 nameSpan.className = 'skill-name'
                 nameSpan.textContent = `${skillKeys[index]}:`
@@ -204,6 +207,24 @@ function commandHandler(cmd, mainElement, clone) {
             mainElement.appendChild(container)
             break
 
+        case 'clear':
+            mainElement.innerHTML=''
+        break;
+
+        case 'about':
+            const about = document.createElement('div')
+            about.className = 'output about'
+            const content =
+            `
+            <h1>Hi, I'm Yash.</h1>
+            <p>I'm 21 and a CS student. I'm currently pursuing Bsc. CS.</p>
+            <p>I've had 1 year of experience in building websites and mobile apps.</p>
+            <p>I specialize in making responsive, accessible websites using a variety of different web stacks.</p>
+            <p>I love diving deep into random programming rabbit holes. I don't limit myself to a single field.</p>
+            <p>I plan to delve into different CS fields like desktop development, systems engineering, AI, DevOps and so on.</p>
+            `
+            about.innerHTML = content
+            mainElement.append(about)
         case undefined:
             break;
 

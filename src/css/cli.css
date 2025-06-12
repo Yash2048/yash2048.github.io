@@ -92,6 +92,7 @@ main {
       color:var(--url-clr);
       text-decoration: none;
     }
+    margin-top: .6rem;
 }
 .skills{
   display: flex;
@@ -103,6 +104,8 @@ main {
   grid-template-columns: 100px 1fr; /* Adjust 100px if needed */
   align-items: start;
   column-gap: 2rem;
+  /* background-color: red; */
+  margin: 0.1rem 0;
 }
 
 .skills ul {
@@ -123,4 +126,17 @@ li{
 li:not(:last-child):after{
   content: ",";
   transform: translateX(-0.2rem);
+}
+
+.about{
+& p::before{
+  content: ">";
+  margin-right:0.4rem;
+  color: #82aaff;
+  font-weight: bold;
+}
+& p{
+  font-size: 1.2rem;
+  font-weight: normal;
+}
 }
