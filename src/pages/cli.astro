@@ -1,0 +1,454 @@
+---
+import { EXPERIENCE, SKILLS } from "../consts";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+
+    <title>CLI</title>
+  </head>
+  <body>
+    <main>
+      <div class="terminal-input">
+        <span class="terminal-prompt">
+          <span class="usr-name">guest</span>@<span class="host-name"
+            >yash2048.github.io</span
+          >>
+        </span>
+        <input
+          class="cmd"
+          type="text"
+          name=""
+          id="cmd"
+          autocomplete="off"
+          autofocus
+        />
+      </div>
+    </main>
+
+    <script define:vars={{ SKILLS, EXPERIENCE }}>
+      // Your JavaScript code goes here - exactly the same as before
+      const cmds = [
+        "help",
+        "clear",
+        "exit",
+        "inspiration",
+        "whoami",
+        "about",
+        "skills",
+        "experience",
+        "contact",
+      ];
+
+      document.addEventListener("keydown", (event) => {
+        const input = document.getElementById("cmd");
+        const isTypingKey =
+          event.key.length === 1 && !event.ctrlKey && !event.metaKey;
+
+        if (isTypingKey && document.activeElement !== input) {
+          input.focus();
+        }
+
+        if (event.key === "Enter") {
+          const inputValue = input.value;
+          const terminalInput = input.closest(".terminal-input");
+          const terminalInputClone = terminalInput.cloneNode(true);
+          const main = document.querySelector("main");
+          terminalInputClone.querySelector("input").value = "";
+
+          const span = document.createElement("span");
+          span.textContent = inputValue;
+          input.parentNode.replaceChild(span, input, terminalInputClone);
+
+          commandHandler(input.value, main);
+
+          main.appendChild(terminalInputClone);
+          terminalInputClone.scrollIntoView();
+        }
+      });
+
+      function commandHandler(cmd, mainElement, clone) {
+        const args = cmd
+          .trim()
+          .split(" ")
+          .filter((word) => word.length > 0);
+        const p = document.createElement("p");
+        p.className = "output";
+
+        switch (args[0]) {
+          case "exit":
+            window.location.href = "/";
+            break;
+
+          case "help":
+            p.innerHTML += `<span>available commands: </span><span>${cmds.toString().replaceAll(",", ", ")}</span>`;
+            mainElement.appendChild(p);
+            break;
+
+          case "inspiration":
+            p.textContent = "Redirecting... => ";
+            const a = document.createElement("a");
+            a.href = "https://meddelanden.se/";
+            a.target = "_blank";
+            a.rel = "noopener noreferrer";
+            a.textContent = "meddelanden.se";
+            p.appendChild(a);
+            mainElement.appendChild(p);
+            setTimeout(() => {
+              window.open("https://meddelanden.se/");
+            }, 300);
+            break;
+
+          case "whoami":
+            p.textContent = document.querySelector(".usr-name").textContent;
+            p.className = "output usr-name";
+            mainElement.appendChild(p);
+            break;
+
+          case "skills":
+            const container = document.createElement("div");
+            const skillKeys = Object.keys(SKILLS);
+            const skillsArr = Array(skillKeys.length)
+              .fill(null)
+              .map(() => document.createElement("div"));
+
+            skillsArr.forEach((div, index) => {
+              div.className = `skill ${skillKeys[index]}`;
+              const nameSpan = document.createElement("span");
+              nameSpan.className = "skill-name";
+              nameSpan.textContent = `${skillKeys[index]}:`;
+              div.appendChild(nameSpan);
+
+              const skillList = document.createElement("ul");
+              SKILLS[skillKeys[index]].forEach((el) => {
+                skillList.innerHTML += `<li><i class="${el.className}"></i><p>${el.name}</p></li>`;
+              });
+
+              div.appendChild(skillList);
+              container.appendChild(div);
+            });
+
+            container.className = "output skills";
+            mainElement.appendChild(container);
+            break;
+
+          case "clear":
+            mainElement.innerHTML = "";
+            break;
+
+          case "about":
+            const about = document.createElement("div");
+            about.className = "output about";
+            about.innerHTML = `
+                        <h1>Hi, I'm Yash.</h1>
+                        <ul>
+                        <li><p>I'm 21 and a CS student. I'm currently pursuing Bsc. CS.</p></li>
+                        <li><p>I've had 1 year of experience in building websites and mobile apps.</p></li>
+                        <li><p>I specialize in making responsive, accessible websites using a variety of different web stacks.</p></li>
+                        <li><p>I love diving deep into random programming rabbit holes. I don't limit myself to a single field.</p></li>
+                        <li><p>I plan to delve into different CS fields like desktop development, systems engineering, AI, DevOps and so on.</p></li>
+                        </ul>
+                    `;
+            mainElement.appendChild(about);
+            break;
+
+          case "experience":
+            const experienceContainer = document.createElement("section");
+            experienceContainer.className = "output experience";
+            const workExperience = document.createElement("section");
+            workExperience.className = "work-experience";
+
+            workExperience.innerHTML += `<h3>Work</h3>`;
+            EXPERIENCE.work.forEach((work) => {
+              const WorkContainer = document.createElement("article");
+              WorkContainer.className = "work";
+              WorkContainer.innerHTML += `
+                            <h4 class="work-place">${work["work-place"]} <span class="location">${work["location"]}</span></h4>
+                        `;
+              WorkContainer.innerHTML += `
+                            <p class="work-position">${work["work-position"]} <span class="time"><time datetime="${work["time"][0].datetime}">${work["time"][0].Date}</time>-<time datetime="${work["time"][1].datetime}">${work["time"][1].Date}</time></span></p>
+                        `;
+              const workDescription = document.createElement("ul");
+              workDescription.className = "work-description";
+              WorkContainer.appendChild(workDescription);
+              work["work-point"].forEach((point) => {
+                workDescription.innerHTML += `<li class="work-point"><p>${point}</p></li>`;
+              });
+
+              workExperience.appendChild(WorkContainer);
+            });
+
+            const projectExperience = document.createElement("section");
+            projectExperience.className = "project-experience";
+            projectExperience.innerHTML += `<h3>Projects</h3>`;
+
+            EXPERIENCE.project.forEach((project) => {
+              const ProjectContainer = document.createElement("article");
+              ProjectContainer.className = "project";
+              ProjectContainer.innerHTML += `
+                            <h4 class="project-title">${project["project-title"]}</h4>
+                        `;
+              ProjectContainer.innerHTML += `
+                            <p class="project-type">${project["project-type"]} <span class="tech-stack">${project["tech-stack"]}</span></p>
+                        `;
+              const projectDescription = document.createElement("ul");
+              projectDescription.className = "project-description";
+              ProjectContainer.appendChild(projectDescription);
+              project["project-point"].forEach((point) => {
+                projectDescription.innerHTML += `<li class="project-point"><p>${point}</p></li>`;
+              });
+
+              projectExperience.appendChild(ProjectContainer);
+            });
+
+            experienceContainer.appendChild(workExperience);
+            experienceContainer.appendChild(projectExperience);
+            mainElement.appendChild(experienceContainer);
+            break;
+
+          case "contact":
+            const contact = document.createElement("section");
+            contact.className = "output contact-me";
+            contact.innerHTML += `
+                        <h3>Contact me</h3>
+                        <address>
+                            Find with me on  <a href="https://github.com/Yash2048/"target="_blank" rel="noopener noreferrer"><i class="devicon-github-plain"></i></a><br>
+                            Connect with me on  <a href="https://www.linkedin.com/in/yash-raj-trying-to-code/"target="_blank" rel="noopener noreferrer"><i class="devicon-linkedin-plain"></i></a><br>
+                            Mail me at  <a href="mailto:yashraj.ch2048@gmail.com" target="_blank" rel="noopener noreferrer">yashraj.ch2048@gmail.com</a><br>
+                        </address>
+                    `;
+            mainElement.appendChild(contact);
+            break;
+
+          case undefined:
+            break;
+
+          default:
+            const commandSpan = document.createElement("span");
+            commandSpan.textContent = `${args[0]}: `;
+            const errorSpan = document.createElement("span");
+            errorSpan.className = "error";
+            errorSpan.textContent = "command not found.";
+            p.appendChild(commandSpan);
+            p.appendChild(errorSpan);
+            mainElement.appendChild(p);
+            break;
+        }
+      }
+    </script>
+    <style>
+      :root {
+        --bg-clr: #3e4251;
+        --bg-slc-clr: #717cb4;
+        --txt-clr: #999;
+        --txt-slc-clr: #ccc;
+        --outline-clr: #ddbdf2;
+        --usr-clr: #ffcb6b;
+        --host-clr: #c792ea;
+        --err-clr: #f07178;
+        --url-clr: #82aaff;
+      }
+
+      @font-face {
+        font-family: "Fira Code";
+        src: url("/fonts/Fira Code/FiraCode-VariableFont_wght.ttf");
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+
+      *::selection {
+        background-color: var(--bg-slc-clr);
+        color: var(--txt-slc-clr);
+      }
+
+      body {
+        background-color: var(--bg-clr);
+        font-size: 18px;
+        color: var(--txt-slc-clr);
+        font-family: "Fira Code";
+      }
+
+      main {
+        position: absolute;
+        inset: 1rem;
+        border: 3px solid var(--outline-clr);
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+        overflow-y: auto;
+        scrollbar-color: gray var(--outline-clr);
+      }
+
+      .terminal-input {
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
+      }
+
+      .terminal-input:not(:first-child) {
+        margin-top: 0.1rem;
+      }
+
+      .terminal-prompt {
+        color: var(--txt-slc-clr);
+        font-weight: bold;
+      }
+
+      .terminal-prompt .usr-name {
+        color: var(--usr-clr);
+      }
+
+      .terminal-prompt .host-name {
+        color: var(--host-clr);
+      }
+
+      .terminal-prompt .usr-name::selection {
+        color: #ffdfa6;
+      }
+
+      .terminal-prompt .host-name::selection {
+        color: #ddbdf2;
+      }
+
+      #cmd {
+        background: transparent;
+        border: none;
+        font: inherit;
+        color: inherit;
+        width: max-content;
+        padding: 0;
+        flex-grow: 1;
+      }
+
+      #cmd:focus {
+        border: none;
+        outline: none;
+        caret-color: #ffdfa6;
+      }
+
+      /* GLOBAL so JS-inserted .output works */
+      :global(.output) {
+        font-weight: bold;
+        margin-top: 0.6rem;
+      }
+
+      :global(.output .error) {
+        color: #f07178;
+      }
+
+      :global(.output a) {
+        color: var(--url-clr);
+        text-decoration: none;
+      }
+
+      :global(.skills) {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+
+      :global(.skills > *) {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        align-items: start;
+        column-gap: 2rem;
+        margin: 0.1rem 0;
+      }
+
+      :global(.skills ul) {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 0;
+        margin: 0;
+      }
+
+      :global(.skills li) {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.3rem;
+      }
+
+      :global(.skills li:not(:last-child):after) {
+        content: ",";
+        transform: translateX(-0.2rem);
+      }
+
+      :global(.about p) {
+        font-size: 1.2rem;
+        font-weight: normal;
+      }
+
+      :global(.about li::marker) {
+        content: "> ";
+        color: #82aaff;
+        font-weight: bold;
+      }
+
+      :global(.experience > :not(:last-child)) {
+        margin-bottom: 1rem;
+      }
+
+      :global(.experience h4) {
+        font-weight: 500;
+      }
+
+      :global(.experience h3) {
+        display: inline-block;
+        border-bottom: 3px whitesmoke groove;
+      }
+
+      :global(.experience p) {
+        font-weight: normal;
+      }
+
+      :global(.experience .work:not(:last-child)),
+      :global(.experience .project:not(:last-child)) {
+        margin-bottom: 5px;
+      }
+
+      :global(.experience ul > li::marker) {
+        content: "> ";
+        color: #82aaff;
+        font-weight: bold;
+      }
+
+      :global(.experience .time),
+      :global(.experience .location),
+      :global(.experience .tech-stack) {
+        position: absolute;
+        right: 10px;
+      }
+
+      :global(.experience .time::after),
+      :global(.experience .location::after),
+      :global(.experience .tech-stack::after) {
+        content: ")";
+      }
+
+      :global(.experience .time::before),
+      :global(.experience .location::before),
+      :global(.experience .tech-stack::before) {
+        content: "(";
+      }
+
+      address {
+        font-style: oblique;
+        font-weight: normal;
+      }
+    </style>
+  </body>
+</html>
