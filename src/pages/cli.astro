@@ -8,13 +8,20 @@ import { EXPERIENCE, SKILLS } from "../consts";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="description" content="this is a cli version of my protfolio." />
     <link
       rel="preload"
       as="style"
       type="text/css"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@2.17.0/devicon.min.css"
       onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+      />
+    </noscript>
 
     <title>CLI</title>
   </head>
@@ -33,6 +40,7 @@ import { EXPERIENCE, SKILLS } from "../consts";
           id="cmd"
           autocomplete="off"
           autofocus
+          aria-label="input"
         />
       </div>
     </main>
@@ -262,7 +270,9 @@ import { EXPERIENCE, SKILLS } from "../consts";
 
       @font-face {
         font-family: "Fira Code";
-        src: url("/fonts/Fira Code/FiraCode-VariableFont_wght.ttf");
+        src: url("/fonts/Fira-Code/FiraCode-VariableFont_wght.ttf")
+          format("truetype");
+        font-display: swap;
       }
 
       * {
