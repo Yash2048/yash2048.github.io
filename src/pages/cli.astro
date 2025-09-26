@@ -9,9 +9,11 @@ import { EXPERIENCE, SKILLS } from "../consts";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <link
-      rel="stylesheet"
+      rel="preload"
+      as="style"
       type="text/css"
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
 
     <title>CLI</title>
@@ -266,6 +268,7 @@ import { EXPERIENCE, SKILLS } from "../consts";
       * {
         box-sizing: border-box;
         margin: 0;
+        padding: 0;
       }
 
       *::selection {
@@ -340,30 +343,34 @@ import { EXPERIENCE, SKILLS } from "../consts";
       /* GLOBAL so JS-inserted .output works */
       :global(.output) {
         font-weight: bold;
-        margin-top: 0.6rem;
+        /* margin-top: 0.6rem; */
       }
 
       :global(.output .error) {
-        color: #f07178;
+        color: var(--err-clr);
       }
 
       :global(.output a) {
         color: var(--url-clr);
         text-decoration: none;
       }
+      :global(.output p) {
+        margin: 0;
+      }
 
       :global(.skills) {
         display: flex;
         flex-direction: column;
-        gap: 0.2rem;
+        padding: 0;
+        margin: 0;
       }
 
-      :global(.skills > *) {
+      :global(.skill) {
         display: grid;
         grid-template-columns: 100px 1fr;
-        align-items: start;
+        align-items: center;
         column-gap: 2rem;
-        margin: 0.1rem 0;
+        /* height: 2rem; */
       }
 
       :global(.skills ul) {
@@ -377,7 +384,6 @@ import { EXPERIENCE, SKILLS } from "../consts";
       :global(.skills li) {
         list-style: none;
         display: flex;
-        justify-content: space-between;
         align-items: center;
         gap: 0.3rem;
       }
