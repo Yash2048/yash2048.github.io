@@ -48,9 +48,10 @@ button {
   background: none;
   border: none;
 }
-svg {
-  fill: var(--bg-sec-col, white);
-  width: 2.8rem;
+
+[data-icon]{
+  font-size:2.5rem;
+  aspect-ratio: 1/1;
 }
 
 button:hover > svg,
