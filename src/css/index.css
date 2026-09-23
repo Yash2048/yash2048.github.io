@@ -75,28 +75,3 @@ a[role="button"]:active {
   color: transparent;
   padding: 0 0.01rem;
 }
-.surname {
-  background: linear-gradient(90deg, #c792ea, #82aaff);
-    background-clip: text;
-  color: transparent;
-
-  animation: disappear 3s ease 1s forwards;
-  display: inline-block;
-}
-
-/* KEYFRAMES */
-@keyframes disappear {
-  0% {
-    transform: translate(0, 0) scale(1) rotate(0deg);
-    opacity: 1;
-  }
-  10% {
-    transform: translate(3rem, 0) scale(1) rotate(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(8rem, 10rem) scale(0.1) rotate(1080deg);
-    opacity: 0;
-    display: none;
-  }
-}
