@@ -1,6 +1,7 @@
 ---
 import "../css/index.css";
 import { Icon } from "astro-icon/components";
+import ThemeButton from '../components/ThemeButton.svelte'
 ---
 
 <html lang="en">
@@ -18,9 +19,7 @@ import { Icon } from "astro-icon/components";
                 <a aria-label="cli" title="cli" href="/cli">
                     <Icon name="cli" />
                 </a>
-                <button class="dark-light-mode" title="toggle darkmode">
-                    <Icon name="dark_mode" />
-                </button>
+                    <ThemeButton client:load/>
             </nav>
         </header>
         <main>
