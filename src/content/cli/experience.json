@@ -1,0 +1,46 @@
+{
+    "work": [
+        {
+            "work-place": "DDUC ACM STUDENT CHAPTER",
+            "location": "Dwarka, Delhi",
+            "work-position": "Executive & part of the Web Team",
+            "time": [
+                {
+                    "datetime": "2024-08",
+                    "Date": "Aug, 2024"
+                },
+                {
+                    "datetime": "2025-05",
+                    "Date": "Aug, 2025"
+                }
+            ],
+            "work-point": [
+                "Helped maintain the DDUC ACM website.",
+                "Handled Outreach program to aware students of benefits of Canva at DIET, GHUMANHERA.",
+                "Took peer to peer classes to teach students about web development.",
+                "Part of several workshops on different subjects in DDUC.",
+                "Organised the ICIST-25 and ICAISA-25 Research Conference. Led the latter.",
+                "Worked on the ICIST-25 website"
+            ]
+        }
+    ],
+    "project": [
+        {
+            "project-title": "Retina",
+            "project-type": "Android App",
+            "tech-stack": "React Native, Firebase",
+            "project-point": [
+                "App to detect deep fake videos.",
+                "It takes a video and returns whether it is real or fake."
+            ]
+        },
+        {
+            "project-title": "Plantify",
+            "project-type": "Android App",
+            "tech-stack": "React Native, Firebase",
+            "project-point": [
+                "App for hackathon project to classify 112 native indian plant species."
+            ]
+        }
+    ]
+}

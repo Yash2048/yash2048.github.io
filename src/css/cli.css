@@ -10,14 +10,7 @@
   --url-clr: #82aaff;
 }
 
-@font-face {
-  font-family: "terminal";
-  src: url("../../assets/fonts/VT323/VT323-Regular.ttf");
-}
-@font-face {
-  font-family: "Fira Code";
-  src: url("../../assets/fonts/Fira Code/FiraCode-VariableFont_wght.ttf");
-}
+
 
 * {
   box-sizing: border-box;
@@ -32,6 +25,7 @@ body {
   font-size: 18px;
   color: var(--txt-slc-clr);
   font-family: "Fira Code";
+  scroll-behavior: smooth;
 }
 main {
   position: absolute;

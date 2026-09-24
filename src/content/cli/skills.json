@@ -1,0 +1,116 @@
+{
+    "languages": [
+        {
+            "name": "HTML",
+            "className": "devicon-html5-plain"
+        },
+        {
+            "name": "CSS",
+            "className": "devicon-css3-plain"
+        },
+        {
+            "name": "JavaScript",
+            "className": "devicon-javascript-plain"
+        },
+        {
+            "name": "TypeScript",
+            "className": "devicon-typescript-plain"
+        },
+        {
+            "name": "Python",
+            "className": "devicon-python-plain"
+        },
+        {
+            "name": "C++",
+            "className": "devicon-cplusplus-plain"
+        },
+        {
+            "name": "SQL",
+            "className": "devicon-mysql-original"
+        }
+    ],
+    "libraries": [
+        {
+            "name": "React",
+            "className": "devicon-react-original"
+        },
+        {
+            "name": "React Native",
+            "className": "devicon-react-original"
+        },
+        {
+            "name": "React Navigation",
+            "className": "devicon-reactnavigation-original"
+        },
+        {
+            "name": "Tailwind",
+            "className": "devicon-tailwindcss-original"
+        },
+        {
+            "name": "Express",
+            "className": "devicon-express-original"
+        },
+        {
+            "name": "FastAPI",
+            "className": "devicon-fastapi-plain"
+        },
+        {
+            "name": "Vite",
+            "className": "devicon-vitejs-plain"
+        }
+    ],
+    "tools": [
+        {
+            "name": "Git",
+            "className": "devicon-git-plain"
+        },
+        {
+            "name": "GitHub",
+            "className": "devicon-github-original"
+        },
+        {
+            "name": "VS Code",
+            "className": "devicon-vscode-plain"
+        },
+        {
+            "name": "Neovim",
+            "className": "devicon-neovim-plain"
+        },
+        {
+            "name": "npm",
+            "className": "devicon-npm-original-wordmark"
+        },
+        {
+            "name": "pnpm",
+            "className": "devicon-pnpm-plain"
+        }
+
+    ],
+    "interested": [
+        {
+            "name": "Rust",
+            "className": "devicon-rust-original"
+        },
+        {
+            "name": "Tauri",
+            "className": "devicon-tauri-plain"
+        },
+        {
+            "name": "Docker",
+            "className": "devicon-docker-plain"
+        },
+        {
+            "name": "Astro",
+            "className": "devicon-astro-plain"
+        },
+        {
+            "name": "Vue",
+            "className": "devicon-vuejs-plain"
+        },
+        {
+            "name": "Go",
+            "className": "devicon-go-original-wordmark"
+        }
+    ]
+
+}
