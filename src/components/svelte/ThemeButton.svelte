@@ -63,5 +63,6 @@
     .icon {
         width: 2.1rem;
         height: 2.1rem;
+        fill: var(--secondary);
     }
 </style>

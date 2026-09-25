@@ -1,7 +1,6 @@
 ---
 import "../css/index.css";
-import { Icon } from "astro-icon/components";
-import ThemeButton from '../components/svelte/ThemeButton.svelte'
+import Header from '../components/astro/Header.astro'
 ---
 
 <html lang="en">
@@ -14,14 +13,7 @@ import ThemeButton from '../components/svelte/ThemeButton.svelte'
         <title>Astro</title>
     </head>
     <body>
-        <header>
-            <nav>
-                <a aria-label="cli" title="cli" href="/cli">
-                    <Icon name="cli" />
-                </a>
-                    <ThemeButton client:load/>
-            </nav>
-        </header>
+        <Header/>
         <main>
             <h1 id="title">
                 Hi. I am <span class="name">Yash</span>
