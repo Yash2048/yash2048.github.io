@@ -60,8 +60,6 @@ import { Icon } from "astro-icon/components";
         }
 
         transition: all ease 0.15s;
-        padding-block: 0.9rem;
-        padding-inline: 1.25rem;
 
         &:hover,
         &:has(a:focus-visible) {
@@ -74,6 +72,9 @@ import { Icon } from "astro-icon/components";
         }
     }
     a {
+        display: block;
+        padding-block: 0.9rem;
+        padding-inline: 1.25rem;
         color: var(--text);
         text-decoration: none;
         font-size: 1.1rem;
@@ -96,7 +97,7 @@ import { Icon } from "astro-icon/components";
         nav:has(:focus) ul {
             display: flex;
         }
-        nav{
+        nav {
             order: 1;
         }
         ul {
@@ -109,7 +110,7 @@ import { Icon } from "astro-icon/components";
             right: 1rem;
         }
 
-        li {
+        a {
             padding-inline: 3rem;
             text-align: center;
         }
