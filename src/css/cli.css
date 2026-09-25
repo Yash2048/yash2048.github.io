@@ -98,7 +98,6 @@ main {
   grid-template-columns: 100px 1fr; /* Adjust 100px if needed */
   align-items: start;
   column-gap: 2rem;
-  /* background-color: red; */
   margin: 0.1rem 0;
 }
 
@@ -178,4 +177,13 @@ main {
 address{
   font-style: oblique;
   font-weight: normal;
+}
+
+@media (max-width:640px){
+  .terminal-input{
+    flex-wrap: wrap;
+  }
+  input{
+    background-color: #82aaff;
+  }
 }
