@@ -4,21 +4,21 @@
     let theme: string | null = null;
     const onclick = () => {
         if (theme === null) {
-            console.log(theme);
             theme = "dark";
             document.documentElement.dataset.theme = "dark";
+            localStorage.setItem("theme", "dark");
         } else if (theme === "dark") {
-            console.log(theme);
             theme = "light";
             document.documentElement.dataset.theme = "light";
+            localStorage.setItem("theme", "light");
         } else if (theme === "light") {
-            console.log(theme);
             theme = null;
             document.documentElement.removeAttribute("data-theme");
+            localStorage.removeItem("theme");
         }
     };
     onMount(() => {
-        theme = document.documentElement.dataset.theme ?? null;
+        theme = localStorage.getItem("theme");
     });
 </script>
 

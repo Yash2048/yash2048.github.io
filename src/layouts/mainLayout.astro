@@ -6,6 +6,10 @@ import Header from "../components/astro/Header.astro";
 
 <html lang="en">
     <head>
+        <script is:inline>
+            theme = localStorage.getItem("theme");
+            if (theme) document.documentElement.dataset.theme = theme;
+        </script>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="viewport" content="width=device-width" />
