@@ -1,23 +1,9 @@
 ---
-import "../css/index.css";
-import Header from '../components/astro/Header.astro'
+import MainLayout from "../layouts/mainLayout.astro";
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>Astro</title>
-    </head>
-    <body>
-        <Header/>
-        <main>
-            <h1 id="title">
-                Hi. I am <span class="name">Yash</span>
-            </h1>
-        </main>
-    </body>
-</html>
+<MainLayout title="Home">
+    <h1 id="title">
+        Hi. I am <span class="name">Yash</span>
+    </h1>
+</MainLayout>
