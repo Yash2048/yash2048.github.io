@@ -1,16 +1,23 @@
 ---
 import ThemeButton from "../svelte/ThemeButton.svelte";
 import { Icon } from "astro-icon/components";
+const { currentPage } = Astro.props;
 ---
 
 <header>
     <nav>
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/projects">Projects</a></li>
+            <li aria-current={currentPage === "Home"}><a href="/">Home</a></li>
+            <li aria-current={currentPage === "Projects"}>
+                <a href="/projects">Projects</a>
+            </li>
             <li><a href="/cli">CLI</a></li>
-            <li><a href="/blog">Blog</a></li>
-            <li><a href="/about">About</a></li>
+            <li aria-current={currentPage === "Blog"}>
+                <a href="/blog">Blog</a>
+            </li>
+            <li aria-current={currentPage === "About"}>
+                <a href="/about">About</a>
+            </li>
         </ul>
         <button class="menu-toggle">
             <Icon width="24" height="24" name="nav" />
@@ -61,6 +68,7 @@ import { Icon } from "astro-icon/components";
 
         transition: all ease 0.15s;
 
+        &[aria-current="true"],
         &:hover,
         &:has(a:focus-visible) {
             background-color: var(--accent);

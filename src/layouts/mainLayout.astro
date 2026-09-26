@@ -14,7 +14,7 @@ import Header from "../components/astro/Header.astro";
         <title>{title}</title>
     </head>
     <body>
-        <Header />
+        <Header currentPage={title} />
         <main>
             <slot />
         </main>
