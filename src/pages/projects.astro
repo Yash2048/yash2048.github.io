@@ -1,9 +1,39 @@
 ---
+import { Image } from "astro:assets";
 import MainLayout from "../layouts/mainLayout.astro";
+// import retinaImage from "../images/retina.png";
+import underConstruction from "../images/website-under-construction.jpg";
+// import ProjectCard from "../components/ProjectCard.astro";
+// const tags1 = ["React Native", "Typescript", "Firebase"];
+// const tags2 = ["React Native", "Typescript", "tailwindcss"];
+// const tags3 = ["Svelte", "Typescript", "Webrtc"];
+// const tags4 = ["Python", "Tensorflow", "Keras"];
 ---
 
 <MainLayout title="Projects">
-    <h1>
-        Projects
-    </h1>
+    <h1 class="title">My Projects</h1>
+    <Image
+        src={underConstruction}
+        alt="Website under construction"
+        width={500}
+        format="avif"
+        loading="eager"
+    />
+
+    <!-- <ProjectCard title="Retina" tags={tags1} img={retinaImage} />
+    <ProjectCard title="Plantify" tags={tags2} />
+    <ProjectCard title="Peer Notes" tags={tags3}>
+        <p>A P2P Video Calling client made with the webRTC Browser API written in svelte.</p>
+    </ProjectCard>
+    <ProjectCard title="Plant Disease Detection Model" tags={tags4} /> -->
 </MainLayout>
+
+<style>
+    .title {
+        text-align: center;
+    }
+    img {
+        display: block;
+        margin: 10rem auto;
+    }
+</style>

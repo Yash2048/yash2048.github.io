@@ -1,9 +1,25 @@
 ---
 import MainLayout from "../layouts/mainLayout.astro";
+import { Image } from "astro:assets";
+import underConstruction from "../images/website-under-construction.jpg";
+
 ---
 
 <MainLayout title="Home">
-    <h1 id="title">
+    <!-- <h1 id="title">
         Hi. I am <span class="name">Yash</span>
-    </h1>
+    </h1> -->
+                <Image
+                src={underConstruction}
+                alt="Website under construction"
+                width={500}
+                format="avif"
+                loading="eager"
+            />
 </MainLayout>
+<style>
+    img{
+        display: block;
+        margin: 10rem auto;
+    }
+</style>
